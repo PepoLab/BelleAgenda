@@ -1,0 +1,62 @@
+{% extends 'agenda/base.html' %}
+
+{% block title %}
+    Reativar cliente - BelleAgenda
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-12 col-md-8 col-lg-6">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <h1 class="h4 fw-bold mb-3">
+                    Reativar cliente
+                </h1>
+
+                <p class="mb-3">
+                    Deseja reativar o cliente
+                    <strong>{{ client.name }}</strong>?
+                </p>
+
+                <div class="alert alert-info" role="alert">
+                    O cliente voltará a ficar disponível para novos agendamentos.
+                </div>
+
+                <form method="post">
+
+                    {% csrf_token %}
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn btn-success"
+                        >
+                            Sim, reativar
+                        </button>
+
+                        <a
+                            href="{% url 'client_list' %}"
+                            class="btn btn-outline-secondary"
+                        >
+                            Cancelar
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

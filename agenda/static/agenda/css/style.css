@@ -1,0 +1,191 @@
+:root {
+    --ba-primary: #7c3aed;
+    --ba-primary-dark: #6d28d9;
+    --ba-primary-light: #f3e8ff;
+    --ba-background: #f8f7fc;
+    --ba-surface: #ffffff;
+    --ba-text: #1f2937;
+    --ba-muted: #6b7280;
+    --ba-border: #e5e7eb;
+    --ba-danger: #dc2626;
+    --ba-success: #16a34a;
+}
+
+
+body {
+    background-color: var(--ba-background) !important;
+    color: var(--ba-text);
+}
+
+
+/* Navbar */
+
+.ba-navbar {
+    background-color: var(--ba-surface);
+    border-bottom: 1px solid var(--ba-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+.ba-navbar .navbar-brand {
+    color: var(--ba-primary);
+    font-weight: 700;
+}
+
+
+.ba-navbar .nav-link {
+    color: var(--ba-muted);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+
+.ba-navbar .nav-link:hover,
+.ba-navbar .nav-link:focus {
+    color: var(--ba-primary);
+}
+
+
+.ba-navbar .nav-link.active {
+    color: var(--ba-primary);
+}
+
+
+/* Conteúdo */
+
+.ba-page-title {
+    color: var(--ba-text);
+    font-weight: 700;
+}
+
+
+.ba-page-subtitle {
+    color: var(--ba-muted);
+}
+
+
+/* Cards */
+
+.card {
+    border: 1px solid var(--ba-border);
+    border-radius: 12px;
+}
+
+
+.ba-card {
+    background-color: var(--ba-surface);
+    border: 1px solid var(--ba-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+
+/* Botões */
+
+.btn-primary {
+    background-color: var(--ba-primary);
+    border-color: var(--ba-primary);
+}
+
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--ba-primary-dark);
+    border-color: var(--ba-primary-dark);
+}
+
+
+.btn-outline-primary {
+    color: var(--ba-primary);
+    border-color: var(--ba-primary);
+}
+
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--ba-primary);
+    border-color: var(--ba-primary);
+}
+
+
+/* Tabelas */
+
+.table {
+    color: var(--ba-text);
+}
+
+
+.table thead th {
+    color: var(--ba-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+
+.table tbody tr {
+    border-color: var(--ba-border);
+}
+
+
+.table tbody tr:hover {
+    background-color: var(--ba-primary-light);
+}
+
+
+/* Formulários */
+
+.form-label {
+    font-weight: 600;
+    color: var(--ba-text);
+}
+
+
+.form-control,
+.form-select {
+    border-color: var(--ba-border);
+    border-radius: 8px;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--ba-primary);
+    box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.15);
+}
+
+
+/* Badges */
+
+.badge {
+    font-weight: 500;
+    padding: 0.45em 0.7em;
+}
+
+
+/* Acessibilidade */
+
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.nav-link:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(124, 58, 237, 0.35);
+    outline-offset: 2px;
+}
+
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+    .table {
+        min-width: 700px;
+    }
+
+    .ba-page-title {
+        font-size: 1.7rem;
+    }
+
+}

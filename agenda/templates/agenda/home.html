@@ -56,6 +56,7 @@
                             <th scope="col">Cliente</th>
                             <th scope="col">Serviço</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Ações</th>
                         </tr>
 
                     </thead>
@@ -109,6 +110,27 @@
 
                                         <span class="badge text-bg-danger">
                                             Cancelado
+                                        </span>
+
+                                    {% endif %}
+
+                                </td>
+
+                                <td>
+
+                                    {% if appointment.status != 'cancelled' %}
+
+                                        <a
+                                            href="{% url 'appointment_cancel' appointment.id %}"
+                                            class="btn btn-sm btn-outline-danger"
+                                        >
+                                            Cancelar
+                                        </a>
+
+                                    {% else %}
+
+                                        <span class="text-muted small">
+                                            —
                                         </span>
 
                                     {% endif %}

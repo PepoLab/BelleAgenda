@@ -1,0 +1,63 @@
+{% extends 'agenda/base.html' %}
+
+{% block title %}
+    Desativar cliente - BelleAgenda
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-12 col-md-8 col-lg-6">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <h1 class="h4 fw-bold mb-3">
+                    Desativar cliente
+                </h1>
+
+                <p class="mb-3">
+                    Tem certeza que deseja desativar o cliente
+                    <strong>{{ client.name }}</strong>?
+                </p>
+
+                <div class="alert alert-warning" role="alert">
+                    O cliente não será excluído. Ele permanecerá no histórico,
+                    mas não poderá ser utilizado em novos agendamentos.
+                </div>
+
+                <form method="post">
+
+                    {% csrf_token %}
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn btn-danger"
+                        >
+                            Sim, desativar
+                        </button>
+
+                        <a
+                            href="{% url 'client_list' %}"
+                            class="btn btn-outline-secondary"
+                        >
+                            Cancelar
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

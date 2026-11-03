@@ -1,0 +1,164 @@
+{% extends 'agenda/base.html' %}
+
+{% block title %}
+    Clientes - BelleAgenda
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+        <h1 class="fw-bold mb-1">
+            Clientes
+        </h1>
+
+        <p class="text-muted mb-0">
+            Gerencie os clientes da sua agenda.
+        </p>
+    </div>
+
+    <a
+        href="{% url 'client_create' %}"
+        class="btn btn-primary"
+    >
+        + Novo cliente
+    </a>
+
+</div>
+
+
+<div class="card shadow-sm border-0">
+
+    <div class="card-header bg-white py-3">
+
+        <h2 class="h5 mb-0">
+            Clientes cadastrados
+        </h2>
+
+    </div>
+
+
+    <div class="card-body p-0">
+
+        {% if clients %}
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for client in clients %}
+
+                            <tr>
+
+                                <td>
+                                    {{ client.name }}
+                                </td>
+
+                                <td>
+                                    {{ client.phone }}
+                                </td>
+
+                                <td>
+                                    {{ client.email|default:"-" }}
+                                </td>
+
+                                <td>
+
+                                    {% if client.active %}
+
+                                        <span class="badge text-bg-success">
+                                            Ativo
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="badge text-bg-secondary">
+                                            Inativo
+                                        </span>
+
+                                    {% endif %}
+
+                                </td>
+
+                                <td>
+
+                                    <div class="d-flex gap-2">
+
+                                        <a
+                                            href="{% url 'client_edit' client.id %}"
+                                            class="btn btn-sm btn-outline-primary"
+                                        >
+                                            Editar
+                                        </a>
+
+                                        {% if client.active %}
+
+                                            <a
+                                                href="{% url 'client_deactivate' client.id %}"
+                                                class="btn btn-sm btn-outline-danger"
+                                            >
+                                                Desativar
+                                            </a>
+
+                                        {% else %}
+
+                                            <a
+                                                href="{% url 'client_activate' client.id %}"
+                                                class="btn btn-sm btn-outline-success"
+                                            >
+                                                Ativar
+                                            </a>
+
+                                        {% endif %}
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        {% else %}
+
+            <div class="text-center py-5">
+
+                <h2 class="h5">
+                    Nenhum cliente encontrado
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Você ainda não possui clientes cadastrados.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

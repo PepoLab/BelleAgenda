@@ -64,7 +64,18 @@
 
                     </ul>
 
-                    <div class="d-flex align-items-center gap-3">
+               <div class="d-flex align-items-center gap-3">
+
+                        <button
+                            type="button"
+                            id="btnAltoContraste"
+                            class="btn btn-outline-light btn-sm"
+                            aria-pressed="false"
+                            aria-label="Ativar modo de alto contraste"
+                        >
+                            Alto contraste
+                        </button>
+
                         <span class="text-white">
                             Olá, {{ user.username }}
                         </span>
@@ -94,6 +105,39 @@
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
+
+    <script>
+    const botaoContraste = document.getElementById('btnAltoContraste');
+
+    function atualizarContraste(ativado) {
+        document.body.classList.toggle('alto-contraste', ativado);
+
+        botaoContraste.setAttribute('aria-pressed', ativado);
+
+        botaoContraste.setAttribute(
+            'aria-label',
+            ativado
+                ? 'Desativar modo de alto contraste'
+                : 'Ativar modo de alto contraste'
+        );
+
+        botaoContraste.textContent = ativado
+            ? 'Contraste normal'
+            : 'Alto contraste';
+    }
+
+    const contrasteSalvo = localStorage.getItem('altoContraste') === 'true';
+
+    atualizarContraste(contrasteSalvo);
+
+    botaoContraste.addEventListener('click', function () {
+        const ativado = !document.body.classList.contains('alto-contraste');
+
+        localStorage.setItem('altoContraste', ativado);
+
+        atualizarContraste(ativado);
+    });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agenda - BelleAgenda</title>
+</head>
+<body>
+
+    <main>
+        <h1>Bem-vindo ao BelleAgenda!</h1>
+
+        <p>
+            Olá, {{ user.username }}.
+        </p>
+
+        <h2>Agenda</h2>
+
+        <p>
+            Esta será a tela principal dos seus agendamentos.
+        </p>
+
+        <a href="{% url 'logout' %}">
+            Sair
+        </a>
+    </main>
+
+</body>
+</html>

@@ -1,30 +1,69 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'agenda/base.html' %}
 
-    <title>Agenda - BelleAgenda</title>
-</head>
-<body>
+{% block title %}
+    Agenda - BelleAgenda
+{% endblock %}
 
-    <main>
-        <h1>Bem-vindo ao BelleAgenda!</h1>
+{% block content %}
 
-        <p>
-            Olá, {{ user.username }}.
-        </p>
+<div class="mb-4">
+    <h1 class="fw-bold">Agenda</h1>
 
-        <h2>Agenda</h2>
+    <p class="text-muted">
+        Gerencie seus agendamentos de forma simples e organizada.
+    </p>
+</div>
 
-        <p>
-            Esta será a tela principal dos seus agendamentos.
-        </p>
+<div class="row g-4">
 
-        <a href="{% url 'logout' %}">
-            Sair
-        </a>
-    </main>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Agendamentos</h2>
 
-</body>
-</html>
+                <p class="text-muted">
+                    Consulte e gerencie seus horários.
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Ver agenda
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Clientes</h2>
+
+                <p class="text-muted">
+                    Consulte e gerencie seus clientes.
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Ver clientes
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Serviços</h2>
+
+                <p class="text-muted">
+                    Consulte os serviços cadastrados.
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Ver serviços
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

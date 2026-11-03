@@ -189,3 +189,62 @@ a:focus-visible {
     }
 
 }
+/* Alto contraste */
+
+body.alto-contraste {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.alto-contraste .card,
+body.alto-contraste .ba-card,
+body.alto-contraste main {
+    background-color: #000000 !important;
+    color: #887b05 !important;
+    border-color: #ffffff !important;
+}
+
+body.alto-contraste .ba-page-title,
+body.alto-contraste .ba-page-subtitle,
+body.alto-contraste .form-label,
+body.alto-contraste .table,
+body.alto-contraste .table thead th {
+    color: #b6aa05 !important;
+}
+
+body.alto-contraste .form-control,
+body.alto-contraste .form-select {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.alto-contraste .form-control::placeholder {
+    color: #fffb29;
+}
+
+body.alto-contraste .table tbody tr {
+    border-color: #ffffff;
+}
+
+body.alto-contraste .table tbody tr:hover {
+    background-color: #333333;
+}
+
+body.alto-contraste .btn-primary {
+    background-color: #ffef0d !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+body.alto-contraste a {
+    color: #ffef0d important;
+}
+
+body.alto-contraste .btn:focus-visible,
+body.alto-contraste .form-control:focus-visible,
+body.alto-contraste .form-select:focus-visible,
+body.alto-contraste a:focus-visible {
+    outline: 3px solid #fdfd00;
+    outline-offset: 3px;
+}

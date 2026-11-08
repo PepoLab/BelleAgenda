@@ -22,14 +22,26 @@ load_dotenv(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b#q&ed9kaecys&5bewhe^p3!i5-mq)trv+ls$4t8$@!l-&rjz5'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv(
+        'ALLOWED_HOSTS',
+        '127.0.0.1,localhost'
+    ).split(',')
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        'CSRF_TRUSTED_ORIGINS',
+        ''
+    ).split(',')
+    if origin.strip()
+]
 
 # Application definition
 
@@ -121,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email
@@ -128,7 +141,12 @@ STATIC_URL = 'static/'
 
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
+        'HOST': os.getenv('EMAIL_HOST', ''),
+        'PORT': int(os.getenv('EMAIL_PORT', '587')),
+        'USERNAME': os.getenv('EMAIL_HOST_USER', ''),
+        'PASSWORD': os.getenv('EMAIL_HOST_PASSWORD', ''),
+        'USE_TLS': True,
     },
 }
 
